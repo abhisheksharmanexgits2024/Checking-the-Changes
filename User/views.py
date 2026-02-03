@@ -248,10 +248,11 @@ def generate_invoice_pdf(request,invoice):
 
 
 
+
     Amount_In_Word = str(num2words(invoice.total_amount))
     # Render HTML
 
-    html = render_to_string("myuser/main_invoice.html", {"invoice": invoice, "lease_amount": lease_amount, "lease_order_name": lease_order_name, "Amount_In_Word": Amount_In_Word, "subtotal": subtotal, "vat": vat, "total_amount": total_amount, "delivery_cost": delivery_cost, "micro_insurance": micro_insurance, "discount": discount, "lease_price_per_day": lease_price_per_day}, request=request)
+    html = render_to_string("myuser/main_invoice.html", {"invoice": invoice, "lease_amount": lease_amount, "lease_order_name": lease_order_name, "Amount_In_Word": Amount_In_Word, "subtotal": subtotal, "vat": vat, "total_amount": total_amount, "delivery_cost": delivery_cost, "micro_insurance": micro_insurance, "discount": discount,"lease_price_per_day":lease_price_per_day}, request=request)
     
     # Generate PDF in memory
     pdf_buffer = BytesIO()
@@ -2042,7 +2043,7 @@ class UpdateVehicleOwnerAPI(APIView):
                     "message": "Invalid account number: must contain only digits",
                     "data": None
                 }, status=200)
-
+            
         with transaction.atomic():
 
             # Update User fields
@@ -3452,7 +3453,7 @@ class CreateBookingLeaseOrderAPI(APIView):
     def post(self, request):
         try:
             data = request.data
-            print(data)
+
             # ---------------------------
             # STEP 1: Required Fields Check
             # ---------------------------

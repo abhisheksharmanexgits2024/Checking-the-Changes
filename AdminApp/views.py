@@ -23,12 +23,12 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from AdminApp.pagination import CustomPagination
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+
 from User.models import *
 
-
-################# register process #################
 import logging
 logger = logging.getLogger(__name__)
+################# register process #################
 
 ORDER_TIMEOUT_STATUSES = [
     "new_order", "owner_review", "confirmation", "owner_declined", 
@@ -145,6 +145,7 @@ def auto_update_scheduled_orders_status():
 
     logger.info("[AUTO UPDATE SUCCESS] Trip start/end processing finished.")
 
+
 class UserRegistrationAPI(APIView):
     def post(self, request):
         data = request.data
@@ -176,6 +177,7 @@ class UserRegistrationAPI(APIView):
             #send otp on email
             subject = 'Account Verification OTP'
             html_message = render_to_string('myadmin/email_otp.html',{'user':user,'otp':otp})
+
 
             email_message = EmailMultiAlternatives(
                 subject,
@@ -1392,6 +1394,75 @@ class AgencyLogAPI(APIView):
                 "error": str(e),
                 "data": None
             }, status=200)
+# class AgencyLogAPI(APIView):
+#     permission_classes = [IsAuthenticated]
+#     def get(self, request, agency_id=None):
+#         try:
+#             user = request.user
+#             if user.user_type.user_type_name != "Admin":
+#                 return Response({'status': 0, 'message': 'Only administrators are authorized to access this resource.', 'data': None},status=status.HTTP_200_OK)
+#             if agency_id:
+#                 agency = (
+#                     Lease_Agency_Master.objects
+#                     .filter(id=agency_id)
+#                     .first()
+#                 )
+
+#                 if not agency:
+#                     return Response({
+#                         "status": 0,
+#                         "message": "Agency not found.",
+#                         "data": None
+#                     }, status=200)
+
+#                 vehicle_links = Vehicle_Agency.objects.filter(
+#                     lease_agency=agency,
+#                     status="Active"
+#                 ).select_related("vehicle_master", "vehicle_master__vehicle_owner")
+
+#                 vehicles = [link.vehicle_master for link in vehicle_links]
+
+#                 serializer = AgencyVehicleDetailSerializer(
+#                     vehicles,
+#                     many=True,
+#                     context={"request": request}
+#                 )
+
+#                 return Response({
+#                     "status": 1,
+#                     "message": "Agency vehicles fetched successfully.",
+#                     "data": serializer.data
+#                 }, status=200)
+
+#             agencies = (
+#                 Lease_Agency_Master.objects
+#                 .select_related("user_id")
+#                 .order_by("-created_at")
+#             )
+
+#             paginator = CustomPagination()
+#             result_page = paginator.paginate_queryset(agencies, request)
+
+#             serializer = AgencyLogListSerializer(
+#                 result_page,
+#                 many=True,
+#                 context={"request": request}
+#             )
+#             total_pages = paginator.page.paginator.num_pages
+#             return paginator.get_paginated_response({
+#                 "status": 1,
+#                 "message": "Agency logs fetched successfully.",
+#                 "total_pages": total_pages,
+#                 "data": serializer.data
+#             })
+
+#         except Exception as e:
+#             return Response({
+#                 "status": 0,
+#                 "message": "Something went wrong while fetching agency logs.",
+#                 "error": str(e),
+#                 "data": None
+#             }, status=200)
 
 class TransactionLogAPI(APIView):
     permission_classes = [IsAuthenticated]
@@ -2114,5 +2185,7 @@ class LogoutAPI(APIView):
         except Exception as e:
             print(f"Full Exception: {e}")
             return Response({'status': 0, 'message': 'Logout failed', 'data': str(e)}, status=status.HTTP_200_OK)
+        
+        
         
         

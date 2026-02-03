@@ -246,7 +246,7 @@ class VehicleDetailSerializer(serializers.ModelSerializer):
                     image_url = request.build_absolute_uri(img.image.url)
                 else:
                     image_url = f"{settings.MEDIA_URL}{img.image.name}"
-                result.append({"id": img.id, "image": image_url})
+                result.append({"id": img.id,"image": image_url})
         return result
 
 ### Vehicle Owner Log

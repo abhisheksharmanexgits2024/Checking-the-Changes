@@ -699,6 +699,7 @@ class SetCommissionMaster(models.Model):
     def __str__(self):
         return self.commission_name    
     
+
 class VehiclePriceMatrix(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     vehicle_make = models.CharField(max_length=128)
@@ -720,7 +721,9 @@ class VehiclePriceMatrix(models.Model):
         verbose_name_plural = "Vehicle Price Matrix Records"
 
     def __str__(self):
-        return f"{self.vehicle_make} {self.vehicle_model} ({self.vehicle_year})"    
+        return f"{self.vehicle_make} {self.vehicle_model} ({self.vehicle_year})"
+
+
 
 ##   Driver  ##
 class Driver(models.Model):
