@@ -2042,7 +2042,7 @@ class UpdateVehicleOwnerAPI(APIView):
                     "message": "Invalid account number: must contain only digits",
                     "data": None
                 }, status=200)
-            
+
         with transaction.atomic():
 
             # Update User fields
@@ -3452,7 +3452,7 @@ class CreateBookingLeaseOrderAPI(APIView):
     def post(self, request):
         try:
             data = request.data
-
+            print(data)
             # ---------------------------
             # STEP 1: Required Fields Check
             # ---------------------------

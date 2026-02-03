@@ -38,7 +38,7 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
     authentication_classes=[],
-    url='https://api.vauchapp.com', # add ngrok terminal URL here
+    url='https://api-staging.vauchapp.com', # add ngrok terminal URL here
     generator_class=NoOperationIdGenerator, 
 )
 

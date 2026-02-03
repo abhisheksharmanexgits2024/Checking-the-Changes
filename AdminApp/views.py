@@ -2116,5 +2116,3 @@ class LogoutAPI(APIView):
             return Response({'status': 0, 'message': 'Logout failed', 'data': str(e)}, status=status.HTTP_200_OK)
         
         
-        
-        
