@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if mso]>
+    <style type="text/css">
+        body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }
+    </style>
+    <![endif]-->
+</head>
+
+<body style="font-family: Helvetica, Arial, sans-serif; margin: 0px; padding: 0px; background-color: #ffffff;">
+    <table role="presentation"
+        style="width: 100%; border-collapse: collapse; border: 0px; border-spacing: 0px; font-family: Arial, Helvetica, sans-serif; background-color: #041d33;">
+        <tbody>
+            <tr>
+                <td align="center" style="padding: 1rem 2rem; vertical-align: top; width: 100%;">
+                    <table role="presentation"
+                        style="max-width: 600px; border-collapse: collapse; border: 0px; border-spacing: 0px; text-align: left; border-radius: 10px;">
+                        <tbody>
+                            <tr>
+                                <td style="padding: 40px 0px 0px;">
+
+                                    <div style="text-align: center;">
+                                        <div style="padding-bottom: 20px;">
+                                            <img src="https://api.vauchapp.com/static/my_admin/image/logo_fixed.png" 
+                                                 alt="Company" style="width: 240px;">
+                                        </div>
+                                    </div>
+
+                                    <div style="padding: 20px; background-color: #ffffff;">
+                                        <div style="color: #000; text-align: left;">
+
+                                            <h1 style="margin: 1rem 0; color: #02658F;">
+                                                Payment Confirmed — Your Vauch Trip Is Scheduled
+                                            </h1>
+
+                                            <p style="padding-bottom: 16px;">Hi {{ payment.invoice.lease_order.user.first_name }},</p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Your payment for Booking <strong>#{{ payment.invoice.invoice_number }}</strong> has been received.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Your <strong>{{payment.invoice.lease_order.vehicle.vehicle_make}} {{payment.invoice.lease_order.vehicle.vehicle_model}} , {{payment.invoice.lease_order.vehicle.mfg_year}}</strong> is reserved for<br>
+                                                <strong>{{ payment.invoice.lease_order.start_date }} – {{ payment.invoice.lease_order.end_date }}</strong><br>
+                                                at <strong>{{ payment.invoice.lease_order.client_location }}</strong>.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;"><strong>Payment Summary:</strong></p>
+
+                                            <p style="padding-bottom: 4px;">Amount Paid: NGN {{ amount }}</p>
+                                            <p style="padding-bottom: 4px;">Method: {{ payment.payment_method.payment_method_name }}</p>
+                                            <p style="padding-bottom: 16px;">Reference: {{ payment.transaction_id }}</p>
+
+                                            <p style="padding-bottom: 16px;"><strong>Insurance Note:</strong></p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Your ride is automatically covered by Vauch Micro Insurance, ensuring protection throughout your trip.
+                                                You’ll receive your driver and vehicle details 1 hour before pickup.
+                                            </p>
+
+                                            <!-- CENTER ALIGNED BUTTON ONLY -->
+                                            <div style="text-align: center; padding: 20px 0;">
+                                                <a href="{{ url }}" 
+                                                   style="background-color: #02658F; color: #fff; padding: 12px 24px; 
+                                                   text-decoration: none; font-weight: bold; border-radius: 5px;">
+                                                    View Booking
+                                                </a>
+                                            </div>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Thanks for choosing Vauch — safe, insured, and guaranteed.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                —<br>
+                                                The Vauch Team<br>
+                                                support@vauchapp.com
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div style="padding-top: 20px; color: #999; text-align: center;">
+                                        <p style="padding-bottom: 16px;">© 2025 Vauch. All rights reserved.</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

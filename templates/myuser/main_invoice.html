@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Helvetica, Arial;
+            font-size: 12px;
+        }
+
+        .section-title {
+            color: #0066A2;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #ccc;
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        th {
+            text-align: left;
+            padding: 6px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        td {
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .amount {
+            text-align: right;
+        }
+
+        .total {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 30px;
+        }
+        .lease_key{
+        text-align: right;
+        }
+        .name{
+        text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 20px;">
+        <tr>
+            <td>
+                <img src="{% static 'my_admin/image/logo_fixed.png' %}" width="140" />
+            </td>
+            <td class="amount">
+                <b>Invoice {{invoice.invoice_number}}</b><br />
+                Due Date: {{invoice.due_date}}
+            </td>
+        </tr>
+    </table>
+
+    <!-- Section: Customer Information -->
+    <div class="section-title">Customer Information</div>
+    <div class="divider"></div>
+
+    <table border="0">
+        <tr>
+            <td width="30%"><b>Customer Name:</b></td>
+            <td width="70%" class="name">{{ invoice.lease_order.user.first_name }} {{ invoice.lease_order.user.last_name }}</td>
+        </tr>
+    </table>
+
+    <!-- Section: Lease Details -->
+    <div class="section-title">Lease Details</div>
+    <div class="divider"></div>
+
+    <table border="0">
+        <tr>
+            <td width="30%"><b>Lease Order for</b></td>
+            <td width="70%" class="lease_key">{{lease_order_name}}</td>
+        </tr>
+
+        <tr>
+            <td><b>VIN :</b></td>
+            <td class="lease_key">{{ invoice.lease_order.vehicle.vehicle_identify_number }}</td>
+        </tr>
+
+        <tr>
+            <td><b>Rate/Day:</b></td>
+            <td class="lease_key">NGN {{lease_price_per_day}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Duration:</b></td>
+            <td class="lease_key">{{invoice.lease_order.total_days}} Days</td>
+        </tr>
+
+        <tr>
+            <td><b>Total Lease Amount:</b></td>
+            <td class="lease_key">{{lease_amount}}</td>
+        </tr>
+    </table>
+
+    <!-- Other Charges -->
+    <div class="section-title">Other Charges</div>
+    <div class="divider"></div>
+
+    <table border="0">
+        <tr>
+            <th width="70%">Description</th>
+            <th width="30%" class="amount">Amount (NGN)</th>
+        </tr>
+
+        <tr>
+            <td>Vehicle Delivery</td>
+            <td class="amount">{{delivery_cost}}</td>
+        </tr>
+
+        <tr>
+            <td>Insurance</td>
+            <td class="amount">{{micro_insurance}}</td>
+        </tr>
+
+        <tr>
+            <td>Discount</td>
+            <td class="amount">{{discount}}</td>
+        </tr>
+    </table>
+
+    <!-- Summary -->
+    <div class="section-title">Summary</div>
+    <div class="divider"></div>
+
+    <table border="0">
+        <tr>
+            <th width="70%">Item</th>
+            <th width="30%" class="amount">Amount (NGN)</th>
+        </tr>
+
+        <tr>
+            <td>Subtotal</td>
+            <td class="amount">{{subtotal}}</td>
+        </tr>
+
+        <tr>
+            <td>VAT (7.5%)</td>
+            <td class="amount">{{vat}}</td>
+        </tr>
+
+        <tr class="total">
+            <td>Total Payable</td>
+            <td class="amount">{{total_amount}}</td>
+        </tr>
+    </table>
+
+    <!-- Amount in Words -->
+    <p><b>Amount in Words:</b> {{Amount_In_Word}} Naira Only (NGN {{invoice.total_amount}})</p>
+
+    <!-- Footer -->
+    <div class="footer-text">
+        No refund after purchase please.
+    </div>
+
+</body>
+</html>

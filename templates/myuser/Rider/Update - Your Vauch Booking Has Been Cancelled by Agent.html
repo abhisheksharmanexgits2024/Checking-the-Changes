@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Helvetica, Arial, sans-serif; margin: 0px; padding: 0px; background-color: #ffffff;">
+    <table role="presentation"
+           style="width: 100%; border-collapse: collapse; border: 0px; border-spacing: 0px; font-family: Arial, Helvetica, sans-serif; background-color: #041d33;">
+        <tbody>
+            <tr>
+                <td align="center" style="padding: 1rem 2rem; vertical-align: top; width: 100%;">
+                    <table role="presentation" style="max-width: 600px; border-collapse: collapse; border: 0px; border-spacing: 0px; text-align: left; border-radius: 10px;">
+                        <tbody>
+                            <tr>
+                                <td style="padding: 40px 0px 0px;">
+
+                                    <!-- LOGO -->
+                                    <div style="text-align: center;">
+                                        <div style="padding-bottom: 20px;">
+                                            <img src="https://api.vauchapp.com/static/my_admin/image/logo_fixed.png" 
+                                                 alt="Company" style="width: 240px;">
+                                        </div>
+                                    </div>
+
+                                    <!-- WHITE BOX -->
+                                    <div style="padding: 20px; background-color: #ffffff;">
+                                        <div style="color: #000; text-align: left;">
+
+                                            <h1 style="margin: 1rem 0; color: #02658F; text-align: left;">Booking Cancelled</h1>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Hi <strong>{{lease_order.user.first_name}}</strong>,
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Your booking for <strong>{{lease_order.vehicle.vehicle_make}} {{lease_order.vehicle.vehicle_model}} , {{lease_order.vehicle.mfg_year}}</strong> has been cancelled by the Vauch Lease Agent due to
+                                                vehicle unavailability, maintenance issues, or pricing mismatch.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                We sincerely apologize for the inconvenience.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                A refund (if applicable) will be processed within <strong>2 business days</strong>, 
+                                                or you may choose a replacement vehicle right away.
+                                            </p>
+
+                                            <!-- BUTTON (Centered) -->
+                                            <div style="text-align: center; margin: 24px 0;">
+                                                <a href="{{ url }}" 
+                                                   style="background-color: #02658F; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                                                    View Alternative Vehicles
+                                                </a>
+                                            </div>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Our support team is available if you need help finding a replacement or rescheduling your trip.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Thank you for trusting Vauch — where reliability is guaranteed.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                Kind regards,<br>
+                                                The Vauch Support Team
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- FOOTER -->
+                                    <div style="padding-top: 20px; color: #999; text-align: center;">
+                                        <p style="padding-bottom: 16px;">© 2025 Vauch. All rights reserved.</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

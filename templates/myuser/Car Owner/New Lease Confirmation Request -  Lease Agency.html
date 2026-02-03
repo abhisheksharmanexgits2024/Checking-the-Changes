@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if mso]>
+    <style type="text/css">
+        body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }
+    </style>
+    <![endif]-->
+</head>
+
+<body style="font-family: Helvetica, Arial, sans-serif; margin: 0px; padding: 0px; background-color: #ffffff;">
+    <table role="presentation"
+           style="width: 100%; border-collapse: collapse; border: 0px; border-spacing: 0px; font-family: Arial, Helvetica, sans-serif; background-color: #041d33;">
+        <tbody>
+            <tr>
+                <td align="center" style="padding: 1rem 2rem; vertical-align: top; width: 100%;">
+                    <table role="presentation" style="max-width: 600px; border-collapse: collapse; border: 0px; border-spacing: 0px; text-align: left; border-radius: 10px;">
+                        <tbody>
+                            <tr>
+                                <td style="padding: 40px 0px 0px;">
+                                    <div style="text-align: center;">
+                                        <div style="padding-bottom: 20px;">
+                                            <img src="https://api.vauchapp.com/static/my_admin/image/logo_fixed.png" alt="Company"
+                                                 style="width: 240px;">
+                                        </div>
+                                    </div>
+
+                                    <div style="padding: 20px; background-color: #ffffff;">
+                                        <div style="color: #000; text-align: left;">
+
+                                            <h1 style="margin: 1rem 0; color: #02658F;">New Lease Confirmation Request</h1>
+                                            <p style="padding-bottom: 16px;">Send for confirmation of a new lease order.</p>
+
+                                            <p style="padding-bottom: 16px;">Hi <strong>{{lease_order.vehicle.vehicle_owner.user_id.first_name}}</strong>,</p>
+
+                                            <p style="padding-bottom: 16px;">
+                                                <strong>{{lease_order.agency.business_name}}</strong> has sent you a lease booking confirmation request.
+                                            </p>
+
+                                            <p style="padding-bottom: 16px;"><strong>Booking Details:</strong></p>
+                                            <p style="padding-bottom: 8px;">Car: <strong>{{lease_order.vehicle.vehicle_make}} {{lease_order.vehicle.vehicle_model}} , {{lease_order.vehicle.mfg_year}}</strong></p>
+                                            <p style="padding-bottom: 8px;">Client: <strong>{{lease_order.user.first_name}}</strong></p>
+                                            <p style="padding-bottom: 8px;">Duration: <strong>{{lease_order.start_date}}-{{lease_order.end_date}}</strong></p>
+                                            <p style="padding-bottom: 16px;">Lease amount: <strong>NGN {{total_amount}}</strong></p>
+
+                                            <!-- BUTTON CENTER ALIGN -->
+                                            <div style="padding-top: 10px; padding-bottom: 16px; text-align: center;">
+                                                <a href="{{ url }}"
+                                                   style="background-color: #02658F; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                                    Confirm Booking
+                                                </a>
+                                            </div>
+
+                                            <p style="padding-bottom: 16px;">Vauch means guaranteed — for you and your clients.</p>
+
+                                            <p style="padding-bottom: 16px;">Warm regards,<br>The Vauch Team</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="padding-top: 20px; color: #999; text-align: center;">
+                                        <p style="padding-bottom: 16px;">© 2025 Vauch. All rights reserved.</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
